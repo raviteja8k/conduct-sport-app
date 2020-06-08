@@ -2,3 +2,30 @@
   text-align: center;
 }
 
+.Block{
+  display: block;
+}
+
+.greenButton{
+  padding: 10px;
+  background-color: green;
+}
+
+.greenButton:hover{
+  background-color: grey;
+  cursor: pointer;
+}
+
+.yellowButton{
+  padding: 10px;
+  background-color: yellow;
+}
+
+.yellowButton:hover{
+  background-color: grey;
+  cursor: pointer;
+}
+
+.h1{
+  color: green;
+}

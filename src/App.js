@@ -48,16 +48,16 @@ class App extends Component {
   render(){
     return(
     <div className={styles.App} >
-      <h1>Conduct Sports !</h1>
+      <h1 className={styles.h1}>Conduct Sports !</h1>
         Enter player names here: <input onKeyUp={(e) => this.addPlayer(e)} />
        { this.state.playerNames.map((pnames, pkey) =>
         <Players names={pnames} key={pkey}/>
         )}
-        <div style={{display: 'block'}}>
-        <button onClick={this.pairPlayers}>Pair</button>
-        <button >Set Rival</button>
+        <div className={styles.Block}>
+        <button onClick={this.pairPlayers} className={styles.greenButton}>Pair</button>
+        <button  className={styles.yellowButton}>Set Rival</button>
         </div>
-        <div style={{display: 'block'}}>
+        <div className={styles.Block}>
           {this.state.pairs.map((npairs, pairId) => 
             <Pairs pairNames={npairs} key={pairId}/>
           )
