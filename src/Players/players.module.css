@@ -1,0 +1,12 @@
+
+.Players{
+    cursor: pointer;  
+    display: inline-block;  
+    width: 100px;
+  }
+  
+  .Players:hover{
+    color: red;
+  }
+
+ 

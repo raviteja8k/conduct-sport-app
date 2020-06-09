@@ -4,6 +4,8 @@
 
 .Block{
   display: block;
+  max-width: 40%;
+  margin: 0 auto;
 }
 
 .greenButton{
@@ -28,4 +30,10 @@
 
 .h1{
   color: green;
+}
+
+
+input{
+  background-color: green;
+  color: #fff;
 }

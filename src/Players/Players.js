@@ -1,8 +1,9 @@
 import React from 'react';
+import stylesp from './players.module.css';
 
 const Players = (props) => {
     return(
-    <div className={'playersList'} >
+    <div onClick={props.clicked} className={stylesp.Players}>
         {props.names}
     </div>
     );

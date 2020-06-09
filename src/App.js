@@ -5,8 +5,9 @@ import Pairs from './Pairs/Pairs';
 
 class App extends Component {
   state = {
-    playerNames: ["Sean","Kyle","Emily","Nick","Cotter","Brian","Jeremy","Kimmy","Pat","Johnny"],
-    pairs: ["Sean","Kyle","Emily","Nick","Cotter","Brian","Jeremy","Kimmy","Pat","Johnny"]
+    playerNames: ["Sean","Kyle","Emily","Nick"],
+    pairs: [],
+    displayBlock: false
     
   };
 
@@ -19,45 +20,54 @@ class App extends Component {
 
   }
 
+  deleteItem = (indexKey) => {
+    const newPlayers2 = [...this.state.playerNames];
+    newPlayers2.splice(indexKey, 1);
+    this.setState({playerNames: newPlayers2});
+  }
+
   pairPlayers = () => {
     const names = [...this.state.playerNames];
-   // let pickpool = []; // Slice the array at the first element to copy it by value
+    let pickpool = [];
 
     if (names.length % 2 !== 0) {
       alert("You must have an even number of names. You currently have " + names.length + " names.");
   } else {
-      var arr1 = names.slice(), // copy array
-          arr2 = names.slice(); // copy array again
+    while (names.length >= 2){
+      let pair = [];
+	    let name1 = Math.random() * names.length;
+        let person1 = names.splice(name1, 1)[0];
   
-      arr1.sort(function() { return 0.5 - Math.random();}); // shuffle arrays
-      arr2.sort(function() { return 0.5 - Math.random();});
-  
-      while (arr1.length) {
-          var name1 = arr1.pop(), // get the last value of arr1
-              name2 = arr2[0] === name1 ? arr2.pop() : arr2.shift();
-              //        ^^ if the first value is the same as name1, 
-              //           get the last value, otherwise get the first
-  
-          console.log(name1 + ' gets ' + name2 );
-        //  pickpool = (name1 + ' gets ' + name2);
-      }
-  }
- // this.setState({pairs: picks});  
+        let name2 = Math.random() * names.length;
+        let person2 = names.splice(name2, 1)[0];
+
+        pair.push(person1 + ' - ' + person2);
+        pickpool.push(pair);                             
+    }
+  } 
+ 
+  this.setState({pairs: pickpool, displayBlock: true});  
   }
 
   render(){
     return(
     <div className={styles.App} >
       <h1 className={styles.h1}>Conduct Sports !</h1>
-        Enter player names here: <input onKeyUp={(e) => this.addPlayer(e)} />
-       { this.state.playerNames.map((pnames, pkey) =>
-        <Players names={pnames} key={pkey}/>
-        )}
-        <div className={styles.Block}>
+      <div className={styles.Block}>
         <button onClick={this.pairPlayers} className={styles.greenButton}>Pair</button>
         <button  className={styles.yellowButton}>Set Rival</button>
         </div>
+        <p>
+        Enter player names here: <input onKeyUp={(e) => this.addPlayer(e)} />
+        </p>
         <div className={styles.Block}>
+        { this.state.playerNames.map((pnames, pkey) =>
+        <Players names={pnames} key={pkey} clicked={() => this.deleteItem(pkey)} />
+        )}
+        </div>
+     
+        <div className={styles.Block}>
+         {this.state.displayBlock? <h2>..and the pairs are..</h2>: null}
           {this.state.pairs.map((npairs, pairId) => 
             <Pairs pairNames={npairs} key={pairId}/>
           )
