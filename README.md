@@ -14,6 +14,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### This app can do the following for now
 <ol>
+<li>Allows you to add player/team name</li>
+<li>The pair button pairs added players</li>
+<li></li>
 <li>...still in development phase...</li>
 </ol>
 
