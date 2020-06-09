@@ -23,7 +23,7 @@ class App extends Component {
   deleteItem = (indexKey) => {
     const newPlayers2 = [...this.state.playerNames];
     newPlayers2.splice(indexKey, 1);
-    this.setState({playerNames: newPlayers2});
+    this.setState({playerNames: newPlayers2, pairs: []});
   }
 
   pairPlayers = () => {
@@ -67,7 +67,7 @@ class App extends Component {
         </div>
      
         <div className={styles.Block}>
-         {this.state.displayBlock? <h2>..and the pairs are..</h2>: null}
+         {this.state.pairs.length>=1? <h2>..and the pairs are..</h2>: null}
           {this.state.pairs.map((npairs, pairId) => 
             <Pairs pairNames={npairs} key={pairId}/>
           )

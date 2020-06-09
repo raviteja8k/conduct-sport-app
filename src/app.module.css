@@ -11,6 +11,12 @@
 .greenButton{
   padding: 10px;
   background-color: green;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
 .greenButton:hover{
@@ -21,11 +27,18 @@
 .yellowButton{
   padding: 10px;
   background-color: yellow;
+  border: none;
+  color: green;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
 .yellowButton:hover{
   background-color: grey;
   cursor: pointer;
+  color: #fff;
 }
 
 .h1{
