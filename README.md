@@ -15,8 +15,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### This app can do the following for now
 <ol>
 <li>Allows you to add player/team name</li>
+<li>Click on playername to delete the player</li>
 <li>The pair button pairs added players</li>
-<li></li>
+<li>The set rival button sets rivals for conducting matches</li>
 <li>...still in development phase...</li>
 </ol>
 

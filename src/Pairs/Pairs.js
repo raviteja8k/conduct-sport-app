@@ -2,7 +2,7 @@ import React from 'react';
 
 const Pairs = (props) => {
     return(
-    <div className={'pairs'} >
+    <div className={'pairs'} >        
         {props.pairNames}
     </div>
     );
