@@ -17,8 +17,7 @@ class App extends Component {
     const newPlayers2 = [...this.state.playerNames];
     if(event.key === 'Enter') {newPlayers2.push(event.target.value)};
     //this.clearValue = event.target.value;
-    this.setState({playerNames: newPlayers2});
-  
+    this.setState({playerNames: newPlayers2, pairs: [], rivals: []});
 
   }
 
