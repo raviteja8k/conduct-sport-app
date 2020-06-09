@@ -45,8 +45,15 @@
   color: green;
 }
 
-
 input{
   background-color: green;
   color: #fff;
+}
+
+.Red{
+  color: red;
+}
+
+.displayNone{
+  display: none;
 }

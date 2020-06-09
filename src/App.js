@@ -6,11 +6,9 @@ import Rivals from './Rivals/Rivals';
 
 class App extends Component {
   state = {
-    playerNames: ["Sean","Kyle","Emily","Nick"],
+    playerNames: ["Sean","Kyle","Emily","Nick", "Gina", "Tina", "Pup", "Labs"],
     pairs: [],
-    rivals: [],
-    displayBlock: false
-    
+    rivals: []   
   };
 
   addPlayer = (event) => {
@@ -33,7 +31,7 @@ class App extends Component {
     this.state.pairs.length<1 ? rivals=[...this.state.playerNames] : rivals=[...this.state.pairs];
 
     if (rivals.length % 2 !== 0) {
-      alert("You must have an even number of pairs. You currently have " + rivals.length + " pair.");
+      alert("You must have an even number of items. You currently have " + rivals.length + " items.");
   } else {
     while (rivals.length >= 2){
       let pair = [];
@@ -72,16 +70,22 @@ class App extends Component {
     }
   } 
  
-  this.setState({pairs: pickpool});  
+  this.setState({pairs: pickpool, rivals: []});  
   }
 
   render(){
+    
+    const displayClass = [styles.Red];
+    if(this.state.playerNames.length%2===0)
+    displayClass.push(styles.displayNone);
+      
+
     return(
     <div className={styles.App} >
       <h1 className={styles.h1}>Conduct Sports !</h1>
       <div className={styles.Block}>
         <button onClick={this.pairPlayers} className={styles.greenButton}>Pair</button>
-        <button onClick={this.setRivals} className={styles.yellowButton}>Set Rival</button>
+        <button onClick={this.setRivals} className={styles.greenButton}>Set Rival</button>
         </div>
         <p>
         Enter player names here: <input onKeyUp={(e) => this.addPlayer(e)} />
@@ -91,7 +95,10 @@ class App extends Component {
         <Players names={pnames} key={pkey} clicked={() => this.deleteItem(pkey)} />
         )}
         </div>
-     
+        
+        <p className={displayClass.join(' ')}>You should add another name.</p>
+      {/* {this.state.playerNames.length%2===0 ? null: <p className={styles.Red}>You should add another name.</p>} */}
+
         <div className={styles.Block}>
          {this.state.pairs.length>=1? <h2>..and the pairs are..</h2>: null}
           {this.state.pairs.map((npairs, pairId) => 
